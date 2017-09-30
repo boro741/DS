@@ -1,3 +1,7 @@
+/* Single Linked List containing 
+ * only single list
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -10,8 +14,8 @@ struct node
 struct node *head=NULL; // Intially head pointing to nothing
 
 
-// Returns the empty new node
-struct node* create_node()
+// Returns the address of empty new node i.e it returns a pointer.
+struct node* create_node() 
 {
 
     
