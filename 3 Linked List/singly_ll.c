@@ -30,7 +30,7 @@ struct node* create_node()
 void insert()
 {
     struct node *new_node=create_node();
-    struct node *current = head;
+    struct node *current = head;  // Jub bhi aayega starting se he traverse karega.
     int n;
     printf("enter the data\n");
     scanf("%d",&n);
@@ -42,7 +42,7 @@ void insert()
     }
     else
     {
-        // Traverse to the end of list
+        // Traverse to the end of list.    Jub bhi aayega starting se he traverse karega.
         while(current->next)
         {
             current = current->next;
