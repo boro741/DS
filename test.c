@@ -1,45 +1,54 @@
 #include<stdio.h>
+#include<stdlib.h>
+
+// Linked List
+typedef struct node {
+    int data;
+    struct node *next;
+}Node;
+
+Node* createList(){
+    Node *newNode = (Node *)malloc(sizeof(Node));
+    return newNode;
+}
+
+void insertNode(Node **head,int data,int pos){
+    int count = 0;
+    Node *p,*q,*newNode;
+
+    newNode = (Node*)malloc(sizeof(newNode));
+    if(!newNode){
+        printf("Memory Error");
+        return;
+    }
+
+    newNode->data = data;
+    p = *head;
+
+    if(pos == 1){
+        newNode->next = p;
+        *head = newNode;
+    } else{
+        while((p != NULL) && (count < pos)){
+            count++;
+            q = p;
+            p = p->next;
+        }
+        q->next = newNode;
+        newNode->next = p;
+    }
+}
 
 int main()
 {
-    int x = 99, y = 3, z = 13;
-    int i,j,temp = 0;
-    int arr[3] = {0};
-    int arrLength;
+    Node *head1;
+    insertNode(head1,1,1);
 
-    if (x%2 != 0){
-        arr[0] = x;
+    Node *p = head1;
+    while(p != NULL){
+        printf("%d\n",p->data);
+        p = p->next;
     }
-
-    if (y%2 != 0){
-        arr[1] = y;
-    }    
-
-    if (z%2 != 0){
-        arr[2] = z;
-    }
-
-    for (i=0;i<3;i++){
-        
-
-       for(j=0;j<3;j++){
-           if(arr[i] > arr[j]){
-               // Swap
-               temp = arr[i];
-               arr[i] = arr[j];
-               arr[j] = temp;
-           }
-       }
-
-        //printf("%d\n",arr[i]);
-    }
-
-
-for (i=0;i<3;i++){
-    printf("%d\n",arr[i]);
-}    
-
-
 
     return 0;
 }
